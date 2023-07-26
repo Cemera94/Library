@@ -1,0 +1,21 @@
+<br>
+<div class="card" style="width: 100%;">
+    <div class="card-body">
+      <h5 class="card-title">{{book.title}}</h5>
+      <p class="card-text">{{book.author}}</p>
+      <p class="card-text">ISBN: {{book.ISBN}}</p>
+      <p class="card-text">Year of publication: {{book.yearOfPublication}}</p>
+      <p class="card-text">Publisher: {{book.publisher}}</p>
+      <p class="card-text">Average Score: {{avgScore}}</p>
+      <span style="padding-right: 1rem; color: blue;" [routerLink]="['/edit-book', book._id]">Edit</span>
+    </div>
+  </div>
+  <br>
+<div class="card" style="width: 100%;" *ngFor="let item of reviews">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}} - <ngb-rating [rate]="item.score"></ngb-rating></h5>
+      <p class="card-text">{{item.profileName}} - {{item.time}}</p>
+      <p class="card-text">ISBN: {{item.text}}</p>
+      <span style="padding-right: 1rem; color: blue;" (click)="deleteReview(item._id)">Delete</span>
+    </div>
+  </div>
